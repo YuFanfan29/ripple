@@ -6,14 +6,14 @@ The product is small on purpose; the engineering is not. ripple is built to work
 
 ## Status
 
-Scaffolding. `feed` and `media` start, serve health checks, and shut down gracefully. There is no business logic yet.
+Scaffolding. `content`, `feed`, and `media` start, serve health checks, and shut down gracefully. There is no business logic yet.
 
 ## Quickstart
 
-You need Go 1.27 on your `PATH`. [golangci-lint](https://golangci-lint.run/) is optional locally; CI always runs it.
+You need Go 1.27 and JDK 17. Maven comes with the repository through the Maven Wrapper. [golangci-lint](https://golangci-lint.run/) is optional locally; CI always runs it.
 
 ```bash
-make test   # run all tests with the race detector
+make test   # run all Go and Java tests
 make lint   # check formatting and run static analysis
 make ci     # run the same checks as CI
 ```
@@ -21,7 +21,8 @@ make ci     # run the same checks as CI
 To run a service and check its health:
 
 ```bash
-go run ./services/feed
+go run ./services/feed                         # serves on :8081
+(cd services/content && ./mvnw spring-boot:run) # serves on :8080
 curl localhost:8081/readyz
 ```
 
