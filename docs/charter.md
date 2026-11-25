@@ -78,7 +78,6 @@ Every component runs in a container. Services use object storage only through th
 
 ## Open decisions
 
-- GitHub owner, which sets the Go module path and the Java group ID
 - License
 - Domain name
 - Object storage product (Garage or SeaweedFS)

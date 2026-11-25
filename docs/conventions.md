@@ -49,6 +49,7 @@ Use these terms in code, APIs, events, and documentation.
 │   ├── content/   Java, Spring Boot, Maven Wrapper
 │   ├── feed/      Go
 │   └── media/     Go
+├── internal/      Go packages shared by feed and media
 ├── deploy/        Docker Compose files, Nginx configuration, host provisioning
 ├── loadtest/      k6 scripts and the dataset generator
 ├── docs/          charter, conventions, ADRs, runbooks, performance log
@@ -57,7 +58,7 @@ Use these terms in code, APIs, events, and documentation.
 └── Makefile       entry point: make up, make test, make ci
 ```
 
-All Go code is one module at the repository root, so `feed` and `media` can share internal packages. The `content` service is a self-contained Maven project.
+All Go code is one module at the repository root, `github.com/YuFanfan29/ripple`, so `feed` and `media` can share the packages in `internal/`. The `content` service is a self-contained Maven project with the group ID `io.github.yufanfan29` and the base package `io.github.yufanfan29.ripple.content`.
 
 ## Code style
 
@@ -134,7 +135,7 @@ All Go code is one module at the repository root, so `feed` and `media` can shar
 - **Logs** are JSON lines on stdout. Every line has `time`, `level`, `service`, and `message`, plus `trace_id` and `span_id` when a trace is active. Logs never contain passwords, session tokens, or other secrets.
 - **Metrics** use the Prometheus format and naming rules: snake_case, base units, `_total` for counters, and `_seconds` for durations, with a `ripple_<service>_` prefix: `ripple_feed_fanout_lag_seconds`. Every endpoint has RED metrics (rate, errors, duration). Business metrics track the charter's invariants, such as fan-out lag and counter drift.
 - **Traces** use OpenTelemetry. Trace context (W3C Trace Context) travels in HTTP headers and Kafka message headers.
-- **Health checks.** Each service exposes a liveness check and a readiness check. Readiness turns false during startup and graceful shutdown, so a deploy can drain traffic before a process stops.
+- **Health checks.** Each service exposes `GET /livez` (liveness) and `GET /readyz` (readiness). Readiness turns false during startup and graceful shutdown, so a deploy can drain traffic before a process stops.
 
 ## Testing
 

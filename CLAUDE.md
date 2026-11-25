@@ -18,6 +18,12 @@ The owner uses this project to build backend skills, so the core logic is theirs
 - **Claude does not implement owner-owned logic** unless the owner explicitly asks. It explains, gives hints, suggests test cases, and reviews instead.
 - **Claude reviews the owner's code** against the [review checklist](CONTRIBUTING.md#review-checklist). It also points out unnatural English in commit messages, comments, and identifiers, and suggests a more natural version. The owner decides whether to change it.
 
+## Commands
+
+- `make test`: run all tests with the race detector
+- `make lint`: check formatting, run `go vet`, and run golangci-lint when it is installed
+- `make ci`: run the same checks as CI
+
 ## Writing
 
 - Write everything in the repository in English, using the preferred terms in [docs/conventions.md](docs/conventions.md#language).

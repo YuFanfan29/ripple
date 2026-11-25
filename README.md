@@ -6,7 +6,24 @@ The product is small on purpose; the engineering is not. ripple is built to work
 
 ## Status
 
-Planning. The charter, conventions, and first architecture decisions are written. There is no code yet.
+Scaffolding. `feed` and `media` start, serve health checks, and shut down gracefully. There is no business logic yet.
+
+## Quickstart
+
+You need Go 1.27 on your `PATH`. [golangci-lint](https://golangci-lint.run/) is optional locally; CI always runs it.
+
+```bash
+make test   # run all tests with the race detector
+make lint   # check formatting and run static analysis
+make ci     # run the same checks as CI
+```
+
+To run a service and check its health:
+
+```bash
+go run ./services/feed
+curl localhost:8081/readyz
+```
 
 ## Architecture
 
