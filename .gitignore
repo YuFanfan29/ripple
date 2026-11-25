@@ -1,0 +1,32 @@
+# macOS and editors
+.DS_Store
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local Claude Code settings
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Java and Maven
+target/
+
+# Go
+/bin/
+/dist/
+*.test
+coverage.out
+
+# Profiles and recordings
+*.pprof
+*.jfr
+
+# Load-test output and local data
+loadtest/results/
+.data/
