@@ -20,9 +20,11 @@ The owner uses this project to build backend skills, so the core logic is theirs
 
 ## Commands
 
-- `make test`: run all tests with the race detector
-- `make lint`: check formatting, run `go vet`, and run golangci-lint when it is installed
+- `make test`: run all Go tests (with the race detector) and Java tests. `make test-go` and `make test-java` run one side.
+- `make lint`: check Go and Java formatting, run `go vet`, and run golangci-lint when it is installed
+- `make fmt`: format Go code with gofmt and Java code with Spotless
 - `make ci`: run the same checks as CI
+- The `content` service builds with its Maven Wrapper: `cd services/content && ./mvnw verify`
 
 ## Writing
 

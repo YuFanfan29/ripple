@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: content
+
+server:
+  port: ${CONTENT_HTTP_PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+        # Serve liveness and readiness at /livez and /readyz on the main port,
+        # matching the Go services.
+        add-additional-paths: true
+
+# Write JSON log lines with the same fields as the Go services:
+# time, level, service, and message (see docs/conventions.md).
+logging:
+  structured:
+    format:
+      console: logstash
+    json:
+      rename:
+        "[@timestamp]": time
+      exclude:
+        - "@version"
+        - level_value
+        # Commons Logging marks each framework line with a tag that only
+        # names the logging API.
+        - tags
+      add:
+        service: ${spring.application.name}
