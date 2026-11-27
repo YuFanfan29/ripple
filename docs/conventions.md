@@ -6,6 +6,8 @@ These conventions keep the codebase consistent. If one gets in the way, change i
 
 Everything in this repository is written in English: code, identifiers, comments, commit messages, pull requests, documentation, log messages, and error messages.
 
+The one exception is `README.zh-CN.md`, a Simplified Chinese translation of `README.md` for Chinese-speaking readers. `README.md` is the source of truth: when it changes, update the translation in the same pull request.
+
 Prefer the standard industry term to a literal translation:
 
 | Use | Instead of |

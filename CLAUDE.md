@@ -29,6 +29,7 @@ The owner uses this project to build backend skills, so the core logic is theirs
 ## Writing
 
 - Write everything in the repository in English, using the preferred terms in [docs/conventions.md](docs/conventions.md#language).
+- The one exception is `README.zh-CN.md`, a Simplified Chinese translation of `README.md`. `README.md` is the source of truth: when you change it, update the translation in the same pull request.
 - Keep sentences short and plain.
 
 ## Pull requests

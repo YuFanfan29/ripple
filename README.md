@@ -1,5 +1,7 @@
 # ripple
 
+English | [简体中文](README.zh-CN.md)
+
 ripple is a content feed system. People post text and photos, follow each other, like posts, and read a home timeline made from the accounts they follow.
 
 The product is small on purpose; the engineering is not. ripple is built to work through the problems that real feed systems face: fan-out for accounts with very many followers, read-heavy traffic, counters under heavy writes, hot content, and asynchronous image processing. All of it runs on Linux hosts and ships through a CI/CD pipeline.
